@@ -1,0 +1,46 @@
+html{
+    height: 100%;
+}
+h1{
+    margin-top: 5px;
+}
+body{
+    background: linear-gradient(lightblue, rgb(13, 228, 236));
+    color: black;
+    font-family: fantasy;  
+}
+input{
+    background-color: lightblue;
+    color: black;
+    border-radius: 8px;
+}
+header{
+    background-color: rgb(253, 253, 230);
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    width: 60em;
+    overflow: auto;
+}
+#überschrift{
+    font-size: 50px;
+    margin: 5px;
+    float: left;
+    margin: 30px;
+}
+#bild{
+    border-radius: 50px;
+    height: 120px;
+    float: right;
+    max-width: 100%;
+}
+#dateneingabe{
+    background-color: cornflowerblue;
+    color: black;
+    padding: 20px;
+    margin: auto;
+    border-radius: 20px;
+    width: 60em;
+}
