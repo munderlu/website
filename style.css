@@ -1,46 +1,69 @@
-html{
-    height: 100%;
-}
-h1{
-    margin-top: 5px;
+*{
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    box-sizing: border-box;
 }
 body{
-    background: linear-gradient(lightblue, rgb(13, 228, 236));
-    color: black;
-    font-family: fantasy;  
+    background-color: #252323;
+    color: white;
+    font-family: fantasy;
 }
-input{
-    background-color: lightblue;
-    color: black;
-    border-radius: 8px;
+a{
+    color: aquamarine;
+    text-decoration: none;
+}
+a:hover{
+    color: lightblue;
+}
+h1{
+    font-size: xx-large;
+    text-decoration: underline;
+}
+h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+nav a{
+    color: white;
+}
+li{
+    margin-left: 20px;
 }
 header{
-    background-color: rgb(253, 253, 230);
+    margin: auto;
+    width: 60%;
+    padding: 30px;
+    background-color: darkslategray;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+header h1{
+    text-decoration: none;
+    font-size: 2.5em;
+}
+nav{
+    background-color: #DA4167;
     margin: auto;
     margin-bottom: 20px;
-    text-align: center;
     padding: 10px;
-    border-radius: 20px;
-    width: 60em;
-    overflow: auto;
+    border-radius: 10px;
+    width: 60%;
 }
-#überschrift{
-    font-size: 50px;
-    margin: 5px;
-    float: left;
-    margin: 30px;
-}
-#bild{
-    border-radius: 50px;
-    height: 120px;
-    float: right;
-    max-width: 100%;
-}
-#dateneingabe{
-    background-color: cornflowerblue;
-    color: black;
-    padding: 20px;
+article{
     margin: auto;
-    border-radius: 20px;
-    width: 60em;
+    background-color: #44a1a0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+}
+article ul{
+    margin: 5px;
+}
+@media only screen and (max-width : 768px){
+	header, article, nav{
+        width: 100%;
+    }
 }
