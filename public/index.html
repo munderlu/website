@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Portfolio & Musik</title>
+    <style>
+        /* --- FARBPALETTE & VARIABLEN --- */
+        :root {
+            --thunder-cloud: #505160;
+            --waterfall: #68829E;
+            --moss: #AEBD38;
+            --meadow: #598234;
+            --bg-light: #f4f6f8;
+            --text-dark: #2c2d35;
+            --white: #ffffff;
+        }
+
+        /* --- GRUNDLEGENDES SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--thunder-cloud);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--moss);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--moss);
+            transition: color 0.3s;
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, var(--thunder-cloud), var(--waterfall));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            background-color: var(--moss);
+            color: var(--thunder-cloud);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--meadow);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTIONS ALLGEMEIN --- */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--thunder-cloud);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--meadow);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- BEWERBUNG & PROJEKTE (GRID) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--waterfall);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--thunder-cloud);
+            margin-bottom: 15px;
+        }
+
+        /* --- MUSIK BEREICH --- */
+        .music-container {
+            background-color: var(--waterfall);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .music-container h3 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .audio-player {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px auto 30px;
+        }
+
+        /* --- PRIVATER BEREICH --- */
+        .private-section {
+            background-color: #e8eaed;
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px 20px;
+            border: 2px dashed var(--thunder-cloud);
+        }
+
+        .login-box input {
+            padding: 11px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        .error-message {
+            color: #c0392b;
+            font-weight: bold;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--thunder-cloud);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Portfolio.</div>
+        <ul class="nav-links">
+            <li><a href="#bewerbung">Bewerbung</a></li>
+            <li><a href="#musik">Musik</a></li>
+            <li><a href="#privat">Privat</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Hallo, ich bin [Dein Name]</h1>
+        <p>Willkommen in meinem digitalen Portfolio. Hier findest du meinen Lebenslauf, Projekte und kreativen Arbeiten.</p>
+        <a href="#bewerbung" class="btn">Projekte ansehen</a>
+    </header>
+
+    <!-- Bewerbung & Projekte -->
+    <section id="bewerbung">
+        <h2 class="section-title">Bewerbung & Projekte</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Mein Lebenslauf</h3>
+                <p>Eine Übersicht meiner bisherigen schulischen und beruflichen Stationen sowie meiner Fähigkeiten.</p>
+                <br>
+                <a href="#privat" class="btn" style="background-color: var(--waterfall); color: white;">Erweiterten CV anfordern</a>
+            </div>
+            <div class="card">
+                <h3>Projekt 1: Webdesign</h3>
+                <p>Konzeption und Umsetzung einer modernen Landingpage mit Fokus auf User Experience.</p>
+            </div>
+            <div class="card">
+                <h3>Projekt 2: Analyse</h3>
+                <p>Datenauswertung und Visualisierung zur Optimierung von internen Prozessen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Musik Hörproben -->
+    <section id="musik">
+        <h2 class="section-title">Musik Hörproben</h2>
+        <div class="music-container">
+            <h3>Track 1: Ambient Soundscape</h3>
+            <p>Ein entspanntes Stück, produziert in Ableton Live.</p>
+            <audio class="audio-player" controls>
+                <source src="deine-musikdatei.mp3" type="audio/mpeg">
+                Dein Browser unterstützt das Audio-Element nicht.
+            </audio>
+
+            <h3>Track 2: Upbeat Demo</h3>
+            <p>Ein energiegeladener Beat für ein Videoprojekt.</p>
+            <audio class="audio-player" controls>
+                <source src="deine-musikdatei-2.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </section>
+
+    <!-- Privater Bereich -->
+    <section id="privat">
+        <h2 class="section-title">Privater Bereich</h2>
+        <div class="private-section">
+            <div id="auth-container">
+                <p style="margin-bottom: 20px;">Dieser Bereich ist passwortgeschützt und enthält sensible Dokumente.</p>
+                <div class="login-box">
+                    <input type="password" id="password-field" placeholder="Passwort eingeben...">
+                    <button class="btn" id="login-button">Einloggen</button>
+                </div>
+                <p class="error-message" id="error-display"></p>
+            </div>
+            
+            <!-- Hier wird das geschützte HTML vom Server dynamisch geladen -->
+            <div id="secure-content-target"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 [Dein Name]. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- Frontend Logik für Backend Login -->
+    <script>
+        const loginButton = document.getElementById('login-button');
+        const passwordField = document.getElementById('password-field');
+        const errorDisplay = document.getElementById('error-display');
+        const authContainer = document.getElementById('auth-container');
+        const secureContentTarget = document.getElementById('secure-content-target');
+
+        async function performLogin() {
+            const password = passwordField.value;
+            errorDisplay.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password: password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Login erfolgreich: Anmeldefenster verstecken, geheimen Inhalt einfügen
+                    authContainer.style.display = 'none';
+                    secureContentTarget.innerHTML = data.html;
+                } else {
+                    // Fehler anzeigen
+                    errorDisplay.textContent = data.message || 'Login fehlgeschlagen.';
+                    errorDisplay.style.display = 'block';
+                }
+            } catch (err) {
+                errorDisplay.textContent = 'Server nicht erreichbar. Läuft das Node.js Backend?';
+                errorDisplay.style.display = 'block';
+            }
+        }
+
+        loginButton.addEventListener('click', performLogin);
+        
+        // Login via Enter-Taste ermöglichen
+        passwordField.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performLogin();
+            }
+        });
+    </script>
+</body>
+</html>

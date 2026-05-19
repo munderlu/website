@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build: .
+    container_name: portfolio_website
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SITE_PASSWORD=HierDeinSuperSicheresPasswortÄndern
+    volumes:
+      - ./private_docs:/app/private_docs
+    restart: unless-stopped
